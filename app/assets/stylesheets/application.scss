@@ -1,0 +1,17 @@
+@import "bootstrap";
+@import 'global';
+
+.listado {
+    width: 25%;
+    float: right
+    ;
+    padding: 15px;
+    border: 1px solid red;
+}
+.chatear {
+    width: 75%;
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+

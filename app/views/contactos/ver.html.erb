@@ -1,0 +1,63 @@
+<h1>Usuario</h1>
+<table>
+  <tr>
+    <td><h4><strong>Nombre:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.name %></h4></td>
+  </tr>
+
+  <tr>
+    <td><h4><strong>email:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.email %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>encrypted_password:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.encrypted_password %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>reset_password_token:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.reset_password_token %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>reset_password_sent_at:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.reset_password_sent_at %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>remember_created_at:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.remember_created_at %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>sign_in_count:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.sign_in_count %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>current_sign_in_at:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.current_sign_in_at %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>last_sign_in_at:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.last_sign_in_at %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>current_sign_in_ip:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.current_sign_in_ip %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>last_sign_in_ip:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.last_sign_in_ip %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>created_at:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.created_at %></h4></td>
+  </tr>
+  <tr>
+    <td><h4><strong>updated_at:</strong></h4></td>
+    <td><h4>&nbsp;&nbsp;<%= @usuario.updated_at %></h4></td>
+  </tr>
+    </table>
+<br>
+<br>
+<%= button_to 'Regresar', contactos_path, :class => "btn-sm btn-warning", method: :get %>
+<br>
+<br>
+<br>
+<br>

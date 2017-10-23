@@ -1,0 +1,10 @@
+<h1>Agrega una sala de chat</h1>
+
+<%= form_for @contacto do |f| %>
+  <div class="form-group">
+    <%= f.label :nombre %>
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <%= f.submit "Agregar", class: 'btn btn-primary' %>
+<% end %>
