@@ -1,51 +1,16 @@
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Chatea de todo</title>
-      <%= csrf_meta_tags %>
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
-    <body>
-    <nav class="navbar navbar-dark bg-inverse navbar-fixed-top">
-      <%= link_to 'Chatea de todo', root_path, class: 'navbar-brand' %>
-      <% if @message %>
-        <ul class="nav navbar-nav pull-xs-left">
-          <li class="nav-item">
-            <span class="text-muted">Sala <strong><%= @contacto.title %></strong></span>
-          </li>
-        </ul>
-      <% end %>
-      <% if user_signed_in? %>
-        <ul class="nav navbar-nav pull-xs-right">
-          <li class="nav-item">
-            <span class="text-muted">Logueado como <strong><%= current_user.name %></strong></span>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'Cerrar', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-        </ul>
-      <% end %>
-    </nav>
-    <br><br><br>
-    <nav class="navbar navbar-dark bg-inverse navbar-fixed-bottom">
-      <% if user_signed_in? && @message  %>
-        <ul class="nav navbar-nav pull-xs-left">
-        <%= form_for @message, url: '#' do |f| %>
-              <div style="width: 500px;">
-                <%= f.text_field :body, placeholder: "escribe algo desde 2 hasta 1000 caracteres", class: "form-control input-ml" %>
-               </div>
-        <% end %>
-        </ul>
-      <% end %>
-        <ul class="nav navbar-nav pull-xs-right">
-          <li class="nav-item">
-            <span class="text-muted">Creado por <strong><%= mail_to 'rrg1459@hotmail.com', 'Rafael' %></strong></span>
-          </li>
-        </ul>
-    </nav>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatea de todo</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= render 'parciales/navbar' %>
+    <div id="bg-img" data-img="<%= recupera_imagen %>"></div>
     <div class="container">
       <%= yield %>
     </div>
-    </body>
-    </html>
+  </body>
+</html>

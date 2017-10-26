@@ -1,22 +1,10 @@
 
 
-<div class="chatear" id="messages" data-contacto-id="<%= @contacto.id %>">
+<div class="chatear" id="mensajes" data-contacto-id="<%= @contacto.id %>">
 
-  <%= render @contacto.messages %>
+  <%= render @contacto.mensajes %>
 
 <hr>
 
 </div>
 
-<div class="listado">
-<h4>Usuarios</h4>
-
-    <% @usuarios.each do |usuario| %>
-       <tr>
-        <td><h5><%= link_to usuario.name, ver_path(usuario) %></h5></td>
-      </tr>
-    <% end %>
-
-
-
-</div>

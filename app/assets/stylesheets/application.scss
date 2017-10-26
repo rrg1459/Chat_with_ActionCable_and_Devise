@@ -1,5 +1,8 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'global';
+
+@import "*";
 
 .listado {
     width: 25%;
@@ -15,3 +18,16 @@
     border: 1px solid red;
 }
 
+ .chat-sms:before { 
+    content: url(asset-path('SMS-bubble-icon.png'));
+
+    line-height: 1.85rem !important;
+    padding-left: 10px;
+    margin-bottom: -30px;
+}
+
+ .plus:before { 
+    content: url(asset-path('Alarm-Plus-icon.png'));
+
+
+  }

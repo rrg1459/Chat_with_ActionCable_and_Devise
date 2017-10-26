@@ -14,21 +14,24 @@
 ActiveRecord::Schema.define(version: 20160614154147) do
 
   create_table "contactos", force: :cascade do |t|
-    t.string   "title"
+    t.integer  "operadora"
+    t.integer  "numero"
+    t.string   "nombre"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["operadora", "numero", "user_id"], name: "index_contactos_on_operadora_and_numero_and_user_id", unique: true
     t.index ["user_id"], name: "index_contactos_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
+  create_table "mensajes", force: :cascade do |t|
+    t.text     "texto",       limit: 160
     t.integer  "user_id"
     t.integer  "contacto_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["contacto_id"], name: "index_messages_on_contacto_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["contacto_id"], name: "index_mensajes_on_contacto_id"
+    t.index ["user_id"], name: "index_mensajes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,84 @@
+<nav class="navbar  navbar-inverse  navbar-fixed-top">
+  <div class="navbar-nav">
+    <%= link_to root_path do %>
+      <span class="chat-sms"></span>
+    <% end %> 
+  </div>
+
+
+
+
+  <% if user_signed_in? %>
+    <ul class="nav navbar-nav">
+
+      <div class="nav navbar-nav ">
+        <li>
+           <ul class="nav navbar-nav">
+           <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestión
+           <ul class="dropdown-menu" role="menu">
+             <strong><li class="dropdown-header">Operaciones</li></strong>
+             <li><%= link_to 'Contactos', root_path %></li>
+             <li><%= link_to 'Grupos', root_path %></li>
+             <li><%= link_to 'Cargar Archivo', root_path %></li>
+             <li><%= link_to 'Pre cargar saldo', root_path %></li>
+             <li class="divider"></li>
+             <strong><li class="dropdown-header">De interés</li></strong>
+             <li><%= link_to 'Diccionario', root_path %></li>
+             <li><%= link_to 'Premisas', root_path %></li>
+             <li><%= link_to 'Términos y Condiciones', root_path %></li>
+             <li><%= link_to 'Horario sugerido', root_path %></li>
+             <li><%= link_to 'Cerrar', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+           </ul>
+
+           <% @saldo    = 199500 %>
+           <% @enviado  = 100 %>
+           <% @recibido = 50 %>
+
+           <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" >saldo: <b><%= number_to_currency(@saldo, {:precision => 0, :unit => "Bs ", :delimiter => "."})%></b>
+           <ul class="dropdown-menu" role="menu">
+             <center><strong><class="dropdown-header">Cada SMS</strong></center>
+             <li><a href="#"><%= "Enviado "%><%= number_to_currency(@enviado, {:precision => 0, :unit => "Bs ", :delimiter => "."})%></a></li>
+             <li><a href="#"><%= "Recibido "%><%= number_to_currency(@recibido, {:precision => 0, :unit => "Bs ", :delimiter => "."})%></a></li>
+           </ul>
+
+           <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" >
+
+
+
+           <span class="plus"></span>
+
+
+
+           <ul class="dropdown-menu" role="menu">
+             <li><%= link_to 'Nuevo SMS', root_path %></li>
+             <li><%= link_to 'Nuevo Contacto', root_path %></li>
+             <li><%= link_to 'Pre cargar saldo', root_path %></li>
+           </ul>
+
+
+      </div>
+
+
+    </ul>
+  <% end %>
+</nav>
+<br><br><br>
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <% if user_signed_in? && @mensaje  %>
+    <ul class="nav navbar-nav pull-xs-left">
+    <%= form_for @mensaje, url: '#' do |f| %>
+          <div style="width: 500px;">
+            <%= f.text_field :texto, placeholder: "escribe algo desde 2 hasta 160 caracteres", class: "form-control input-ml" %>
+           </div>
+    <% end %>
+    </ul>
+  <% end %>
+    <ul class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <span class="text-muted">Creado por <strong><%= mail_to 'rrg1459@hotmail.com', 'Rafael' %></strong></span>
+      </li>
+    </ul>
+</nav>

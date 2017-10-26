@@ -9,8 +9,10 @@ class ContactosController < ApplicationController
 
   def create
     @contacto = current_user.contactos.build(parametros_contacto)
+    @contacto.operadora = params[:operadora]
+    @contacto.user_id = current_user.id
     if @contacto.save
-      flash[:success] = 'Chat room added!'
+      flash[:success] = 'Contacto creado!'
       redirect_to contactos_path
     else
       render 'new'
@@ -18,9 +20,9 @@ class ContactosController < ApplicationController
   end
 
   def show
-    @usuarios = User.all
-    @contacto = Contacto.includes(:messages).find_by(id: params[:id])
-    @message = Message.new
+#    @usuarios = User.all
+    @contacto = Contacto.includes(:mensajes).find_by(id: params[:id])
+    @mensaje = Mensaje.new
   end
 
   def ver
@@ -36,6 +38,6 @@ class ContactosController < ApplicationController
   private
 
   def parametros_contacto
-    params.require(:contacto).permit(:title)
+    params.require(:contacto).permit(:operadora, :numero, :nombre)
   end
 end

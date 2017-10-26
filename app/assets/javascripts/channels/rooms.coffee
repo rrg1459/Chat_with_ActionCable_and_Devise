@@ -1,13 +1,13 @@
 jQuery(document).on 'turbolinks:load', ->
-  messages = $('#messages')
-  if $('#messages').length > 0
-    messages_to_bottom = -> messages.scrollTop(messages.prop("scrollHeight"))
+  mensajes = $('#mensajes')
+  if $('#mensajes').length > 0
+    mensajes_to_bottom = -> mensajes.scrollTop(mensajes.prop("scrollHeight"))
 
-    messages_to_bottom()
+    mensajes_to_bottom()
 
     App.global_chat = App.cable.subscriptions.create {
         channel: "ContactosChannel"
-        contacto_id: messages.data('contacto-id')
+        contacto_id: mensajes.data('contacto-id')
       },
       connected: ->
         # Called when the subscription is ready for use on the server
@@ -16,18 +16,18 @@ jQuery(document).on 'turbolinks:load', ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        messages.append data['message']
-        messages_to_bottom()
+        mensajes.append data['mensaje']
+        mensajes_to_bottom()
 
-      send_message: (message, contacto_id) ->
-        @perform 'send_message', message: message, contacto_id: contacto_id
+      send_mensaje: (mensaje, contacto_id) ->
+        @perform 'send_mensaje', mensaje: mensaje, contacto_id: contacto_id
 
 
-    $('#new_message').submit (e) ->
+    $('#new_mensaje').submit (e) ->
       $this = $(this)
-      textarea = $this.find('#message_body')
+      textarea = $this.find('#mensaje_texto')
       if $.trim(textarea.val()).length > 1
-        App.global_chat.send_message textarea.val(), messages.data('contacto-id')
+        App.global_chat.send_mensaje textarea.val(), mensajes.data('contacto-id')
         textarea.val('')
       e.preventDefault()
       return false

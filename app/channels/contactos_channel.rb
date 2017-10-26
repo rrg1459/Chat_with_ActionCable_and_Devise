@@ -8,7 +8,7 @@ class ContactosChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def send_message(data)
-    current_user.messages.create!(body: data['message'], contacto_id: data['contacto_id'])
+  def send_mensaje(data)
+    current_user.mensajes.create!(texto: data['mensaje'], contacto_id: data['contacto_id'])
   end
 end
